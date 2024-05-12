@@ -16,6 +16,7 @@ struct node
     char* cityTown;
     Node* left;
     Node* right;
+    int height;
 };
 
 Node* createNode(int storeNum, int registerCount, int aisleCount, const char* state, const char* cityTown);

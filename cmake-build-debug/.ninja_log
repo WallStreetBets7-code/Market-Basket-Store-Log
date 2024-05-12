@@ -9,3 +9,7 @@
 1	33	1715314887368598685	CMakeFiles/MBSearcg_.dir/avl.c.o	dc70967dd6a0e494
 1	45	1715314887380598386	CMakeFiles/MBSearcg_.dir/commands.c.o	9e9b59c4ad75caca
 45	60	1715314887396597987	MBSearcg_	78481ecad8af5180
+2	26	1715480696769741087	CMakeFiles/MBSearcg_.dir/main.c.o	8e0c264a39aac451
+2	26	1715480696769741087	CMakeFiles/MBSearcg_.dir/MarketBasket.c.o	f9667df4647815f1
+2	31	1715480696777740923	CMakeFiles/MBSearcg_.dir/commands.c.o	9e9b59c4ad75caca
+2	33	1715480696777740923	CMakeFiles/MBSearcg_.dir/avl.c.o	dc70967dd6a0e494

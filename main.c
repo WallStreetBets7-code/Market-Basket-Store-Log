@@ -25,9 +25,10 @@ int main()
     destroy(list);*/
 
     Node* root = createNode(4,2,3,"Massachusetts", "Lowell");
-    for (int i = 0; i < 10; i++) {
-        insert(&root, createNode(i, 2, 3, "Maine", "Topsham"));
+    for (int i = 0; i < 100000; i++) {
+        insert(&root, createNode(rand(), 2, 3, "Maine", "Topsham"));
     }
+    insert(&root, createNode(8, 2, 3, "Maine", "Topsham"));
     //inorderPrint(root);
     //printTree(root, 0);
     search(root, 8);

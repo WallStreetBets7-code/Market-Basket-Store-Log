@@ -1,5 +1,8 @@
 #include "avl.h"
 
+int getHeight(Node* node);
+void updateHeight(Node* node);
+
 Node* createNode(int storeNum, int registerCount, int aisleCount, const char* state, const char* cityTown)
 {
     Node* newNode = (Node*)malloc(sizeof(Node));
@@ -15,6 +18,7 @@ Node* createNode(int storeNum, int registerCount, int aisleCount, const char* st
     newNode->storeNum = storeNum;
     newNode->registerCount = registerCount;
     newNode->aisleCount = aisleCount;
+    newNode->height = 1;
     newNode->state = (char*)malloc(strlen(state) + 1);
     if (newNode->state == NULL)
     {
@@ -60,6 +64,8 @@ void insert(Node** root, Node* newNode)
     else
         return;
 
+    updateHeight(*root);
+
     //Maintaining AVL balance properties
     int balanceFactor = getHeight((*root)->right) - getHeight((*root)->left);
     if (balanceFactor > 1)
@@ -90,14 +96,6 @@ void inorderPrint(Node* root)
     //inorderPrint(root->right);
 }
 
-int getHeight(Node* root)
-{
-    if (root == NULL)
-        return 0;
-    else
-        return 1 + findMax(getHeight(root->left), getHeight(root->right));
-}
-
 int findMax(int a, int b)
 {
     return (a > b) ? a : b;
@@ -110,6 +108,8 @@ void rightRotation(Node** pNode)
     root->left = newRoot->right;
     newRoot->right = root;
     *pNode = newRoot;
+    updateHeight(root);
+    updateHeight(newRoot);
 }
 
 void leftRotation(Node** pNode)
@@ -119,6 +119,8 @@ void leftRotation(Node** pNode)
     root->right = newRoot->left;
     newRoot->left = root;
     *pNode = newRoot;
+    updateHeight(root);
+    updateHeight(newRoot);
 }
 
 void search(Node* root, int storeNum)
@@ -151,6 +153,20 @@ void treeDestroy(Node** root)
     (*root)->cityTown = NULL;
     free(*root);
     *root = NULL;
+}
+
+int getHeight(Node* node)
+{
+    if (node == NULL)
+        return 0;
+    return node->height;
+}
+
+void updateHeight(Node* node)
+{
+    if (node != NULL) {
+        node->height = 1 + findMax(getHeight(node->left), getHeight(node->right));
+    }
 }
 
 //GPT GENERATED FUNCTION FOR AVL VERIFICATION
