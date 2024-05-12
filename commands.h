@@ -15,9 +15,9 @@ boolean append(COMMANDS hList, const char* commandType);
 
 void printElement(COMMANDS hList);
 
-void findCommand(COMMANDS hList, const char* input, Node* root);
+void findCommand(COMMANDS hList, const char* input, Node** root);
 
-boolean destroy(COMMANDS* hList);
+        boolean destroy(COMMANDS* hList);
 
 #endif //MBSEARCH_COMMANDS_H
 

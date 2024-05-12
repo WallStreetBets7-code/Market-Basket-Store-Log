@@ -78,33 +78,21 @@ void printElement(COMMANDS hList)
     }
 }
 
-void findCommand(COMMANDS hList, const char* input, Node* root)
+void findCommand(COMMANDS hList, const char* input, Node** root)
 {
-    Commands* pList = (Commands*)hList; //typecast
+    Commands* pList = (Commands*)hList;
     int searchNum;
-    /*for (int i = 0; i < pList->size; i++)
-    {
-        //if the input matches any of the commands
-        if (strcmp(input, pList->cmd[i]) == 0)
-        {
-            pList->func[i]();
-            return;
-        }
-        else
-            printf("Command not found\n");
-    }*/
-    if (strcmp(input, pList->cmd[0]) == 0)
-    {
+
+    if (strcmp(input, pList->cmd[0]) == 0) { // Search function
         printf("Search Store Number: ");
         scanf("%d", &searchNum);
         printf("\n");
-        search(root, searchNum);
+        search(*root, searchNum); // Now properly using the pointer to root
     }
-    else if (strcmp(input, pList->cmd[2]) == 0)
+    else if (strcmp(input, pList->cmd[2]) == 0)  // Add function
     {
         int storeNum, regCount, aisleCount;
-        char state[255];
-        char cityTown[255];
+        char state[255], cityTown[255];
 
         printf("Store Number: ");
         scanf("%d", &storeNum);
@@ -117,7 +105,9 @@ void findCommand(COMMANDS hList, const char* input, Node* root)
         printf("City/Town: ");
         scanf("%s", cityTown);
 
-        createNode(storeNum, regCount, aisleCount, state, cityTown);
+        Node* newNode = createNode(storeNum, regCount, aisleCount, strdup(state), strdup(cityTown));
+        insert(root, newNode);  // Correctly attach this new node to the AVL tree
+        printf("\n");
     }
 }
 

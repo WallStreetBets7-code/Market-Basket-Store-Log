@@ -47,6 +47,7 @@ Node* createNode(int storeNum, int registerCount, int aisleCount, const char* st
 
 void insert(Node** root, Node* newNode)
 {
+    printf("Inserting\n");
     if (newNode == NULL)
     {
         printf("insertion function says: newNode to add = NULL\n");
@@ -56,6 +57,15 @@ void insert(Node** root, Node* newNode)
     if ((*root) == NULL)
     {
         *root = newNode;
+        return;
+    }
+
+    if (newNode->storeNum == (*root)->storeNum)
+    {
+        printf("Duplicate node with storeNum %d found. No insertion performed.\n", newNode->storeNum);
+        free(newNode->state);
+        free(newNode->cityTown);
+        free(newNode);
         return;
     }
 
@@ -156,6 +166,52 @@ void treeDestroy(Node** root)
     (*root)->cityTown = NULL;
     free(*root);
     *root = NULL;
+}
+
+void serialize(Node* root, FILE* fp) {
+    if (root == NULL) {
+        fprintf(fp, "null\n");
+        return;
+    }
+    fprintf(fp, "Store Number: %d\n", root->storeNum);
+    fprintf(fp, "Aisle Count: %d\n", root->aisleCount);
+    fprintf(fp, "Register Count: %d\n", root->registerCount);
+    fprintf(fp, "State: %s\n", root->state);
+    fprintf(fp, "City/Town: %s\n\n", root->cityTown);
+
+    serialize(root->left, fp);
+    serialize(root->right, fp);
+}
+
+Node* deserialize(FILE* fp) {
+    char buffer[256];
+
+    if (!fgets(buffer, sizeof(buffer), fp) || strcmp(buffer, "null\n") == 0) {
+        return NULL;
+    }
+
+    Node* node = malloc(sizeof(Node));
+    if (node == NULL) {
+        perror("Failed to allocate memory for node");
+        return NULL;
+    }
+
+    sscanf(buffer, "Store Number: %d", &node->storeNum);
+    fgets(buffer, sizeof(buffer), fp);
+    sscanf(buffer, "Aisle Count: %d", &node->aisleCount);
+    fgets(buffer, sizeof(buffer), fp);
+    sscanf(buffer, "Register Count: %d", &node->registerCount);
+    fgets(buffer, sizeof(buffer), fp);
+    sscanf(buffer, "State: %s", node->state = malloc(strlen(buffer) - 7));
+    fgets(buffer, sizeof(buffer), fp);
+    sscanf(buffer, "City/Town: %s", node->cityTown = malloc(strlen(buffer) - 11));
+    fgets(buffer, sizeof(buffer), fp); // Skip the blank line
+
+    node->left = deserialize(fp);
+    node->right = deserialize(fp);
+    node->height = 1; // Assuming new node has height of 1 for AVL properties
+
+    return node;
 }
 
 int getHeight(Node* node)

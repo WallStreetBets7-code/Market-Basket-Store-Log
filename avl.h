@@ -30,4 +30,8 @@ void leftRotation(Node** pNode);
 void printTree(Node* root, int space);
 void search(Node* root, int storeNum);
 
+//to store previous data
+void serialize(Node* root, FILE* fp);
+Node* deserialize(FILE* fp);
+
 #endif //MBSEARCH_AVL_H

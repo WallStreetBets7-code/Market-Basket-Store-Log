@@ -19,10 +19,33 @@
 int main()
 {
     Node* root = NULL;
-    COMMANDS* list = NULL;
+    COMMANDS* list = initDefault();
+
+    FILE* file = fopen("/home/sebastian/Desktop/MBSearch/MB.txt", "r");
+    if (file) {
+        // Attempt to deserialize data from file
+        root = deserialize(file);
+        fclose(file);
+        if (root == NULL) {
+            printf("No data found in file or data is corrupt. Starting with an empty tree.\n");
+        }
+    } else {
+        printf("No data file found. Starting with an empty tree.\n");
+    }
+
     while(program(&root, &list)); //run the program until user types "exit"
-    destroy(list);
+
+    file = fopen("/home/sebastian/Desktop/MBSearch/MB.txt", "w");
+    if (file) {
+        serialize(root, file);
+        fclose(file);
+    } else {
+        perror("Failed to open file for writing");
+    }
+
+
     treeDestroy(&root);
+    destroy(list);
     return 0;
 }
 
