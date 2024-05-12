@@ -1,0 +1,3 @@
+/home/sebastian/Desktop/MBSearch/cmake-build-debug/CMakeFiles/MBSearcg_.dir
+/home/sebastian/Desktop/MBSearch/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/sebastian/Desktop/MBSearch/cmake-build-debug/CMakeFiles/rebuild_cache.dir

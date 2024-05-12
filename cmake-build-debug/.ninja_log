@@ -1,0 +1,11 @@
+# ninja log v5
+1	30	1715309244842409826	CMakeFiles/MBSearcg_.dir/main.c.o	8e0c264a39aac451
+1	30	1715309244846409712	CMakeFiles/MBSearcg_.dir/avl.c.o	dc70967dd6a0e494
+0	19	1715313956999117448	build.ninja	4b1cb572afc89f81
+30	47	1715309244862409253	MBSearcg_	5eccc2dcd10a9281
+1	30	1715305123580483139	CMakeFiles/MBSearcg_.dir/commands.c.o	9e9b59c4ad75caca
+1	31	1715314887364598783	CMakeFiles/MBSearcg_.dir/main.c.o	8e0c264a39aac451
+1	31	1715314887364598783	CMakeFiles/MBSearcg_.dir/MarketBasket.c.o	f9667df4647815f1
+1	33	1715314887368598685	CMakeFiles/MBSearcg_.dir/avl.c.o	dc70967dd6a0e494
+1	45	1715314887380598386	CMakeFiles/MBSearcg_.dir/commands.c.o	9e9b59c4ad75caca
+45	60	1715314887396597987	MBSearcg_	78481ecad8af5180
