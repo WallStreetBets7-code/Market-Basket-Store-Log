@@ -105,8 +105,8 @@ void findCommand(COMMANDS hList, const char* input, Node** root)
         printf("City/Town: ");
         scanf("%s", cityTown);
 
-        Node* newNode = createNode(storeNum, regCount, aisleCount, strdup(state), strdup(cityTown));
-        insert(root, newNode);  // Correctly attach this new node to the AVL tree
+        Node* newNode = createNode(storeNum, regCount, aisleCount, state, cityTown);
+        insert(root, newNode);
         printf("\n");
     }
 }
