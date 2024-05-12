@@ -78,10 +78,11 @@ void printElement(COMMANDS hList)
     }
 }
 
-/*void findCommand(COMMANDS hList, const char* input)
+void findCommand(COMMANDS hList, const char* input, Node* root)
 {
     Commands* pList = (Commands*)hList; //typecast
-    for (int i = 0; i < pList->size; i++)
+    int searchNum;
+    /*for (int i = 0; i < pList->size; i++)
     {
         //if the input matches any of the commands
         if (strcmp(input, pList->cmd[i]) == 0)
@@ -91,8 +92,34 @@ void printElement(COMMANDS hList)
         }
         else
             printf("Command not found\n");
+    }*/
+    if (strcmp(input, pList->cmd[0]) == 0)
+    {
+        printf("Search Store Number: ");
+        scanf("%d", &searchNum);
+        printf("\n");
+        search(root, searchNum);
     }
-}*/
+    else if (strcmp(input, pList->cmd[2]) == 0)
+    {
+        int storeNum, regCount, aisleCount;
+        char state[255];
+        char cityTown[255];
+
+        printf("Store Number: ");
+        scanf("%d", &storeNum);
+        printf("Register Count: ");
+        scanf("%d", &regCount);
+        printf("Aisle Count: ");
+        scanf("%d", &aisleCount);
+        printf("State: ");
+        scanf("%s", state);
+        printf("City/Town: ");
+        scanf("%s", cityTown);
+
+        createNode(storeNum, regCount, aisleCount, state, cityTown);
+    }
+}
 
 boolean destroy(COMMANDS* hList)
 {
@@ -128,7 +155,7 @@ boolean resize(Commands* pList)
     }
     else
     {
-        printf("Resizing\n");
+        //printf("Resizing\n");
         int newCap = pList->capacity * 2;
         char** newArr = realloc(pList->cmd, newCap * sizeof(char*));
         if (pList->cmd == NULL)

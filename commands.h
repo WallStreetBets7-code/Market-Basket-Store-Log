@@ -15,7 +15,7 @@ boolean append(COMMANDS hList, const char* commandType);
 
 void printElement(COMMANDS hList);
 
-void findCommand(COMMANDS hList, const char* input);
+void findCommand(COMMANDS hList, const char* input, Node* root);
 
 boolean destroy(COMMANDS* hList);
 

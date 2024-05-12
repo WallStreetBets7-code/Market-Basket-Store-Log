@@ -19,6 +19,7 @@ Node* createNode(int storeNum, int registerCount, int aisleCount, const char* st
     newNode->registerCount = registerCount;
     newNode->aisleCount = aisleCount;
     newNode->height = 1;
+
     newNode->state = (char*)malloc(strlen(state) + 1);
     if (newNode->state == NULL)
     {
@@ -28,17 +29,19 @@ Node* createNode(int storeNum, int registerCount, int aisleCount, const char* st
         return NULL;
     }
     strcpy(newNode->state, state);
+
     newNode->cityTown = (char*)malloc(strlen(cityTown) + 1);
     if (newNode->cityTown == NULL)
     {
         printf("Build tree function says: city/town string alloc = NULL\n");
         free(newNode->state);
-        newNode->state;
+        newNode->state = NULL;
         free(newNode);
         newNode = NULL;
         return NULL;
     }
     strcpy(newNode->cityTown, cityTown);
+
     return newNode;
 }
 

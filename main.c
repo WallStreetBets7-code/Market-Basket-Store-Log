@@ -14,24 +14,16 @@
 
 #include "commands.h"
 #include "avl.h"
+#include "MarketBasket.h"
 
 int main()
 {
-  /*  COMMANDS list = initDefault();
-    append(list, "Search");
-    append(list, "Update");
-    append(list, "Add");
-    printElement(list);
-    destroy(list);*/
-
-    Node* root = createNode(4,2,3,"Massachusetts", "Lowell");
-    for (int i = 0; i < 100000; i++) {
-        insert(&root, createNode(rand(), 2, 3, "Maine", "Topsham"));
-    }
-    insert(&root, createNode(8, 2, 3, "Maine", "Topsham"));
-    //inorderPrint(root);
-    //printTree(root, 0);
-    search(root, 8);
+    Node* root = NULL;
+    COMMANDS* list = NULL;
+    while(program(&root, &list)); //run the program until user types "exit"
+    destroy(list);
     treeDestroy(&root);
     return 0;
 }
+
+

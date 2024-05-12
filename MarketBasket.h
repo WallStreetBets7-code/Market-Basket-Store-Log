@@ -11,6 +11,6 @@
  * do the operation on the binary tree based on that command
  */
 
-void program();
+int program(Node** root, COMMANDS** list);
 
 #endif //MBSEARCH_MARKETBASKET_H
