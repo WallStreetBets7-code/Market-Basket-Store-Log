@@ -73,6 +73,12 @@ build CMakeFiles/MBSearcg_.dir/MarketBasket.c.o: C_COMPILER__MBSearcg__unscanned
   OBJECT_DIR = CMakeFiles/MBSearcg_.dir
   OBJECT_FILE_DIR = CMakeFiles/MBSearcg_.dir
 
+build CMakeFiles/MBSearcg_.dir/associativeArr.c.o: C_COMPILER__MBSearcg__unscanned_Debug /home/sebastian/Desktop/MBSearch/associativeArr.c || cmake_object_order_depends_target_MBSearcg_
+  DEP_FILE = CMakeFiles/MBSearcg_.dir/associativeArr.c.o.d
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/MBSearcg_.dir
+  OBJECT_FILE_DIR = CMakeFiles/MBSearcg_.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target MBSearcg_
@@ -81,7 +87,7 @@ build CMakeFiles/MBSearcg_.dir/MarketBasket.c.o: C_COMPILER__MBSearcg__unscanned
 #############################################
 # Link the executable MBSearcg_
 
-build MBSearcg_: C_EXECUTABLE_LINKER__MBSearcg__Debug CMakeFiles/MBSearcg_.dir/main.c.o CMakeFiles/MBSearcg_.dir/commands.c.o CMakeFiles/MBSearcg_.dir/avl.c.o CMakeFiles/MBSearcg_.dir/MarketBasket.c.o
+build MBSearcg_: C_EXECUTABLE_LINKER__MBSearcg__Debug CMakeFiles/MBSearcg_.dir/main.c.o CMakeFiles/MBSearcg_.dir/commands.c.o CMakeFiles/MBSearcg_.dir/avl.c.o CMakeFiles/MBSearcg_.dir/MarketBasket.c.o CMakeFiles/MBSearcg_.dir/associativeArr.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/MBSearcg_.dir
   POST_BUILD = :

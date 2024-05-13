@@ -20,18 +20,32 @@ struct node
 };
 
 Node* createNode(int storeNum, int registerCount, int aisleCount, const char* state, const char* cityTown);
+
 void insert(Node** root, Node* newNode);
+
 void treeDestroy(Node** root);
+
 void inorderPrint(Node* root);
+
+void printNode(Node* root);
+
 int getHeight(Node* root);
+
 int findMax(int a, int b);
+
 void rightRotation(Node** pNode);
+
 void leftRotation(Node** pNode);
+
+Node* search(Node* root, int storeNum);
+
+void removeNode(Node** root, int storeNum);
+
 void printTree(Node* root, int space);
-void search(Node* root, int storeNum);
 
 //to store previous data
 void serialize(Node* root, FILE* fp);
+
 Node* deserialize(FILE* fp);
 
 #endif //MBSEARCH_AVL_H

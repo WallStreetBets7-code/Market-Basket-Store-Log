@@ -12,5 +12,6 @@
  */
 
 int program(Node** root, COMMANDS** list);
+void trimString(char* str);
 
 #endif //MBSEARCH_MARKETBASKET_H

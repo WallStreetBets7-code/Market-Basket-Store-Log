@@ -47,7 +47,7 @@ Node* createNode(int storeNum, int registerCount, int aisleCount, const char* st
 
 void insert(Node** root, Node* newNode)
 {
-    printf("Inserting\n");
+    //printf("Inserting\n");
     if (newNode == NULL)
     {
         printf("insertion function says: newNode to add = NULL\n");
@@ -99,14 +99,26 @@ void inorderPrint(Node* root)
 {
     if (root == NULL)
         return;
-    //inorderPrint(root->left);
+    inorderPrint(root->left);
+    printf("\nStore Number: %d\n", root->storeNum);
+    printf("Register Count: %d\n", root->registerCount);
+    printf("Aisle Count: %d\n", root->aisleCount);
+    printf("State: %s\n", root->state);
+    printf("City/Town: %s\n", root->cityTown);
+    printf("\n");
+    inorderPrint(root->right);
+}
+
+void printNode(Node* root)
+{
+    if (root == NULL)
+        return;
     printf("Store Number: %d\n", root->storeNum);
     printf("Register Count: %d\n", root->registerCount);
     printf("Aisle Count: %d\n", root->aisleCount);
     printf("State: %s\n", root->state);
     printf("City/Town: %s\n", root->cityTown);
     printf("\n");
-    //inorderPrint(root->right);
 }
 
 int findMax(int a, int b)
@@ -136,15 +148,15 @@ void leftRotation(Node** pNode)
     updateHeight(newRoot);
 }
 
-void search(Node* root, int storeNum)
+Node* search(Node* root, int storeNum)
 {
     if (root == NULL)
-        return;
+        return NULL;
 
     if (root->storeNum == storeNum)
     {
-        inorderPrint(root);
-        return;
+        //inorderPrint(root);
+        return root;
     }
 
     if (storeNum > root->storeNum)

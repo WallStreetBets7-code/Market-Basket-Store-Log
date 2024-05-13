@@ -1,0 +1,44 @@
+Store Number: 6
+Aisle Count: 23
+Register Count: 22
+State: NewHampshire
+City/Town: Salem
+
+Store Number: 4
+Aisle Count: 20
+Register Count: 15
+State: Massachusetts
+City/Town: Chelmsford
+
+Store Number: 2
+Aisle Count: 19
+Register Count: 16
+State: Massachusetts
+City/Town: Lowell
+
+Store Number: 1
+Aisle Count: 13
+Register Count: 10
+State: Massachusetts
+City/Town: Lowell
+
+null
+null
+Store Number: 3
+Aisle Count: 18
+Register Count: 14
+State: Massachusetts
+City/Town: Wilmington
+
+null
+null
+null
+Store Number: 80
+Aisle Count: 69
+Register Count: 69
+State: New Hampshire
+
+City/Town: New
+
+null
+null

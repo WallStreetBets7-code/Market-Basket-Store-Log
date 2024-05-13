@@ -11,4 +11,6 @@ add_executable(MBSearcg_ main.c
         avl.c
         MarketBasket.h
         MarketBasket.c
+        associativeArr.h
+        associativeArr.c
 )

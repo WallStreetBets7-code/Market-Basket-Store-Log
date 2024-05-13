@@ -3,6 +3,7 @@
 
 #include "boolean.h"
 #include "avl.h"
+#include "associativeArr.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,7 +18,9 @@ void printElement(COMMANDS hList);
 
 void findCommand(COMMANDS hList, const char* input, Node** root);
 
-        boolean destroy(COMMANDS* hList);
+boolean destroy(COMMANDS* hList);
+
+void clearKeyboardBuffer();
 
 #endif //MBSEARCH_COMMANDS_H
 
